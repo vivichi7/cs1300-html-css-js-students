@@ -1,4 +1,5 @@
 // Make a GET request to the fruityvice api to retrieve some fruit data
+console.log("beginning")
 const apiRequest = async () => {
   /**
    * To access information in this API, we need to send our requests through a proxy due to CORS restrictions. 
@@ -12,7 +13,7 @@ const apiRequest = async () => {
    */
 
   // TODO fill in your own port number 
-  const PORT_NUMBER = "";
+  const PORT_NUMBER = "8010";
 
   const baseUrl = `http://localhost:${PORT_NUMBER}/proxy/api/`
 
@@ -28,11 +29,13 @@ const apiRequest = async () => {
       'Access-Control-Allow-Origin': '*'
     }
   });
+  console.log("ad");
 
-  // console.log(response);
+  console.log(response);
 
   // Return the response in JSON format
   return response.json();
+  
 }
 
 const updatePage = async () => {
@@ -40,18 +43,46 @@ const updatePage = async () => {
 
   // Make API request and get an array of fruit objects
   const fruitsArray = await apiRequest();
-  // console.log(fruitsArray);
+  console.log(fruitsArray);
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
   // For example, find "name of all fruits whose sugar > 15", 
-
+  /*var goodfruits = fruitsArray.filter(function (fruitsArray ) {
+    return fruitsArray.nutritions.sugar >15;
+  });*/
+  const goodfruits = fruitsArray.filter((fruit) =>{
+    return fruit.nutritions.sugar >15;
+  });
+  
+  console.log(goodfruits);
   // TODO: Create a new HTML element to display your data 
+  const newElement = document.createElement('div');
+  var text ="";
+  for (let i = 0; i < goodfruits.length; i++) {
+    text += goodfruits[i].name;
+  }
+  newElement.innerHTML = text;
+  // Append the new element to an existing part of the webpage
+  const existingElement = document.getElementById('new');
+  existingElement.append(newElement);
 
   // TODO: Append your new element to the page
 
 }
 
 // SAMPLE CODE of how to create and append a new HTML element to the page
+const AddElement = (goodfruits) => {
+  // Create a new HTML element and set its properties
+  const newElement = document.createElement('div');
+  var text ="";
+  for (let i = 0; i < goodfruit.length; i++) {
+    text += goodfruits[i].name + "<br>";
+  }
+  newElement.innerHTML = text;
+  // Append the new element to an existing part of the webpage
+  const existingElement = document.getElementById('cs1300-gallery');
+  existingElement.append(newElement);
+}
 const exampleAddElement = () => {
   // Create a new HTML element and set its properties
   const newElement = document.createElement('div');

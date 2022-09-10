@@ -6,21 +6,30 @@
     <script src="app.js"></script>
     <!-- import CSS styles -->
     <link rel="stylesheet" href="styles.css" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
   </head>
 
   <!-- page content goes into <body> -->
   <body>
     <div id="cs1300-gallery">
+      <div id="new"></div>
       <h1>Welcome to my bakery</h1>
       <p>Add your own images and styles!</p>
 
       <!-- TODO: PART I Add your own images and use CSS flex to make sure they work on different screen sizes -->
       <div class="gallery-item-container">
         <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u">
+        <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u" >
+        <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u" >
+        <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u" >
+        <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u" >
+        <img class="gallery-item" src="./assets/jeff.jpg" alt="jeff watching u" >
       </div>
 
       <!-- TODO: PART II Uncomment the line below, and hook up this button to display data from an API -->
-      <!-- <button onclick="">Press this button to display some fruit data</button> -->
+      <button onclick="updatePage()">Press this button to display some fruit data</button>
     </div>
   </body>
 
